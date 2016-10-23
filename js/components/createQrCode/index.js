@@ -141,7 +141,7 @@ class CreateQrCode extends Component {
             </ListItem>
           </List>
 
-          <Button style={{marginTop: 30}} block onPress={this.handleSaveQrCode}> 保存 </Button>
+          <Button style={{marginTop: 30}} success block onPress={this.handleSaveQrCode}> 保存 </Button>
         </Content>
       </Container>
     )

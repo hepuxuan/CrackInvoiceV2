@@ -111,10 +111,10 @@ class ScanQrCode extends Component {
         <MessageBar ref='alert' />
         <Content padder>
           { this.state.invoice
-            ? <Button block bordered success
+            ? <Button success block bordered success
               onPress={this.handlleSendInvoice}>发送至网页</Button> : null}
           { (!this.state.loggedIn && this.state.clientId)
-            ? <Button block bordered success
+            ? <Button success block bordered success
               onPress={this.handleLogIn}>登录</Button> : null}
 
         </Content>

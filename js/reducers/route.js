@@ -1,17 +1,11 @@
-import type { Action } from '../actions/types'
 import { globalNav } from '../AppNavigator'
 import { PUSH_NEW_ROUTE, POP_ROUTE, POP_TO_ROUTE, REPLACE_ROUTE, REPLACE_OR_PUSH_ROUTE } from '../actions/route'
-import { REHYDRATE } from 'redux-persist/constants'
-
-export type State = {
-  routes: Array<string>
-}
 
 const initialState = {
-  routes: ['login']
+  routes: ['home']
 }
 
-export default function (state:State = initialState , action:Action): State {
+export default function (state = initialState, action) {
   if (action.type === PUSH_NEW_ROUTE) {
     globalNav.navigator.push({id: action.route, passProps: action.passProps})
     return {
@@ -33,20 +27,19 @@ export default function (state:State = initialState , action:Action): State {
   // For sidebar navigation
   if (action.type === REPLACE_OR_PUSH_ROUTE) {
     let routes = state.routes
-
-    if (routes[routes.length - 1] == 'home') {
+    if (routes[routes.length - 1] === 'home') {
       // If top route is home and user navigates to a route other than home, then push
-      if (action.route != 'home')
+      if (action.route !== 'home') {
         globalNav.navigator.push({id: action.route, passProps: action.passProps})
-
-      // If top route is home and user navigates to home, do nothing
-      else
+      } else {
+        // If top route is home and user navigates to home, do nothing
         routes = []
-    }else {
-      if (action.route == 'home') {
+      }
+    } else {
+      if (action.route === 'home') {
         globalNav.navigator.resetTo({id: 'home', passProps: action.passProps})
         routes = []
-      }else {
+      } else {
         globalNav.navigator.replaceWithAnimation({id: action.route, passProps: action.passProps})
         routes.pop()
       }
@@ -79,11 +72,11 @@ export default function (state:State = initialState , action:Action): State {
     }
   }
 
-  if (action.type === REHYDRATE) {
-    const savedData = action['payload']['route'] || state
-    return {
-      ...savedData
-    }
-  }
+  // if (action.type === REHYDRATE) {
+  //   const savedData = action['payload']['route'] || state
+  //   return {
+  //     ...savedData
+  //   }
+  // }
   return state
 }
