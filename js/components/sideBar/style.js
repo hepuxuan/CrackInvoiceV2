@@ -1,5 +1,3 @@
-'use strict'
-
 var React = require('react-native')
 
 var { StyleSheet } = React
@@ -13,4 +11,3 @@ module.exports = StyleSheet.create({
     backgroundColor: '#565051'
   }
 })
-// #271D1D

@@ -72,11 +72,5 @@ export default function (state = initialState, action) {
     }
   }
 
-  // if (action.type === REHYDRATE) {
-  //   const savedData = action['payload']['route'] || state
-  //   return {
-  //     ...savedData
-  //   }
-  // }
   return state
 }

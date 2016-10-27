@@ -20,7 +20,8 @@ class DisplayQrCode extends Component {
       MessageBarManager.showAlert({
         message: '您还没有可用的二维码，请点击生成二维码',
         alertType: 'error',
-        shouldHideOnTap: true
+        shouldHideOnTap: true,
+        viewTopOffset: 0
       })
     }
   }

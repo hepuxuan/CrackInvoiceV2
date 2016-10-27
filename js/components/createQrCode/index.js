@@ -51,16 +51,18 @@ class CreateQrCode extends Component {
       MessageBarManager.showAlert({
         message: '保存成功， 即将返回主页',
         alertType: 'success',
-        shouldHideOnTap: true
+        shouldHideOnTap: true,
+        viewTopOffset: 0
       })
       setTimeout(() => {
         this.props.replaceOrPushRoute('index')
       }, 3000)
-    }, () => {
+    }).catch(() => {
       MessageBarManager.showAlert({
         message: '保存失败， 请稍后再试',
         alertType: 'error',
-        shouldHideOnTap: true
+        shouldHideOnTap: true,
+        viewTopOffset: 0
       })
     })
   }

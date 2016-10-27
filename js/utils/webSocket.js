@@ -1,6 +1,6 @@
 /* global WebSocket */
 
-const WEB_SOCKET_HOST = 'ws://crack-invoice-web.herokuapp.com/ws'
+const WEB_SOCKET_HOST = 'ws://www.crackinvoice.com/ws'
 
 const SEND_INVOICE = '1'
 const LOGIN_SUCCESS = '2'
